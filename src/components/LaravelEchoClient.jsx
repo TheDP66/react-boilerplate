@@ -40,8 +40,6 @@ const LaravelEchoClient = () => {
 
   useEffect(() => {
     window.Echo.channel("public").listen("PublicEvent", (e) => {
-      console.log("e", e);
-
       spawnNotification({
         title: "New Color",
         icon: logoDNet,
@@ -49,6 +47,8 @@ const LaravelEchoClient = () => {
         url: "https://youtube.com",
       });
     });
+
+  // eslint-disable-next-line
   }, []);
 
   return <></>;

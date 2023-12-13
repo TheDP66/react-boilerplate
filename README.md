@@ -4,7 +4,10 @@ This is a react boilerplate project. This project created for developer to speed
 
 ## Contents
 
-1. [Getting started](getting-started.md)
-   1. [Semantic Versioning](semantic-versioning.md)
-1. [Documentation](documentation.md)
-1. [How to Deploy?](how-to-deploy.md)
+1. [Getting started](./docs/getting-started.md)
+   1. [Semantic versioning](./docs/semantic-versioning.md)
+   1. [Playwright](./docs/playwright.md)
+   1. [ESLint](./docs/eslint.md)
+1. [Documentation](./docs/documentation.md)
+1. [Hooks and function](./hooks-and-function.md)
+1. [How to deploy?](./docs/how-to-deploy.md)

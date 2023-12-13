@@ -25,6 +25,8 @@ const NotificationList = ({ type }) => {
 
   useEffect(() => {
     loadMoreData();
+
+    // eslint-disable-next-line
   }, []);
 
   return (

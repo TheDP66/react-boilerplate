@@ -20,7 +20,7 @@ const StickyHeader = ({ title, children }) => {
   };
 
   useEffect(() => {
-    if (screens.md) setActiveKey("");
+    if (screens?.md) setActiveKey("");
   }, [screens]);
 
   return (
@@ -51,9 +51,9 @@ const StickyHeader = ({ title, children }) => {
       items={[
         {
           key: title,
-          id:"sticky-header-title",
+          id: "sticky-header-title",
           label: title,
-          children: screens.md ? (
+          children: screens?.md ? (
             <></>
           ) : children !== undefined ? (
             <Space
@@ -66,8 +66,12 @@ const StickyHeader = ({ title, children }) => {
             <></>
           ),
           style: { flex: 1 },
-          showArrow: screens.md ? false : children !== undefined ? true : false,
-          extra: screens.md ? (
+          showArrow: screens?.md
+            ? false
+            : children !== undefined
+            ? true
+            : false,
+          extra: screens?.md ? (
             <Space size={"middle"} style={{ marginLeft: "32px" }} wrap>
               {children}
             </Space>

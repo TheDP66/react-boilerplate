@@ -124,9 +124,7 @@ const SearchField = () => {
               Pages
             </h4>
             {pageResult.map((item) => (
-              <>
-              {console.log('item', item)}
-              </>
+              <>{console.log("item", item)}</>
             ))}
             <List
               dataSource={pageResult}

@@ -4,8 +4,9 @@ import {
   PlusOutlined,
   QuestionOutlined,
 } from "@ant-design/icons";
-import { Avatar, Button, Tag } from "antd";
+import { Button, Tag } from "antd";
 import { accountAbility } from "../../utils/ability";
+import { getColumnSearchProps } from "../../utils/column";
 
 const statusOptions = [
   {
@@ -48,7 +49,7 @@ const genderOptions = [
   },
 ];
 
-export const charactersColumn = () =>
+export const charactersColumn = ({ searchProps }) =>
   [
     {
       title: "ID",
@@ -59,17 +60,18 @@ export const charactersColumn = () =>
     {
       title: "Name",
       key: "name",
+      ...getColumnSearchProps("name", searchProps),
       sorter: (a, b) => a.name.localeCompare(b.name),
-      render: (_, record) => (
-        <div>
-          <Avatar
-            src={record.image}
-            alt={record.name}
-            style={{ marginRight: "8px" }}
-          />{" "}
-          {record.name}
-        </div>
-      ),
+      // render: (_, record) => (
+      //   <div>
+      //     <Avatar
+      //       src={record.image}
+      //       alt={record.name}
+      //       style={{ marginRight: "8px" }}
+      //     />{" "}
+      //     {record.name}
+      //   </div>
+      // ),
     },
     {
       title: "Species",

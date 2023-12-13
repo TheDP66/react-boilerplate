@@ -3,23 +3,25 @@ import { ConfigProvider, message, notification, theme } from "antd";
 import ErrorBoundary from "antd/lib/alert/ErrorBoundary";
 import dayjs from "dayjs";
 import Cookies from "js-cookie";
-import React, { useEffect, useState } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { CookiesIcon } from "./assets/svg/cookiesSvg";
 import LaravelEchoClient from "./components/LaravelEchoClient";
+import SuspensePage from "./components/SuspensePage";
 import { cookiesButton, cookiesMessage } from "./constant/cookiesNotification";
 import { unauthenticatedPageList } from "./constant/pageList";
 import { themeColor } from "./constant/themeColor";
 import { AbilityContext } from "./context/AbilityContext";
 import DataContext from "./context/DataContext";
 import AppLayout from "./layouts/AppLayout";
-import NotFound from "./pages/notFound/NotFound";
 import { refreshToken } from "./redux/actions/authAction";
 import AuthenticatedRouter from "./routes/AuthenticatedRouter";
 import UnauthenticatedRouter from "./routes/UnauthenticatedRouter";
 import { accountAbility } from "./utils/ability";
 import { notificationPermission } from "./utils/permissions";
+
+const NotFound = lazy(() => import("./pages/notFound/NotFound"));
 
 function App() {
   const { auth, app } = useSelector((state) => state);
@@ -94,6 +96,8 @@ function App() {
         duration: 0,
       });
     }
+
+    // eslint-disable-next-line
   }, []);
 
   //* Browser Permission
@@ -135,7 +139,7 @@ function App() {
                       <Route
                         key={item.key}
                         path={item.path}
-                        element={item.element}
+                        element={<SuspensePage>{item.element}</SuspensePage>}
                       />
                     ))}
                   </Route>
@@ -147,12 +151,21 @@ function App() {
                         key={item.key}
                         path={item.path}
                         element={
-                          <div style={{ width: "100%" }}>{item.element}</div>
+                          <SuspensePage>
+                            <div style={{ width: "100%" }}>{item.element}</div>
+                          </SuspensePage>
                         }
                       />
                     ))}
 
-                    <Route path="*" element={<NotFound />} />
+                    <Route
+                      path="*"
+                      element={
+                        <SuspensePage>
+                          <NotFound />
+                        </SuspensePage>
+                      }
+                    />
                   </Route>
                 </Routes>
               </AppLayout>

@@ -15,7 +15,7 @@ const LoginForm = () => {
       dispatch(login(data));
       navigate("/");
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
   };
 

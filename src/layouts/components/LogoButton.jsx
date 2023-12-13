@@ -1,7 +1,6 @@
 import { Button, theme } from "antd";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
 import logo from "../../assets/images/logo512.png";
 
 const { useToken } = theme;

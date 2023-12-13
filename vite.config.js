@@ -4,6 +4,7 @@
 import basicSsl from "@vitejs/plugin-basic-ssl";
 import react from "@vitejs/plugin-react";
 import reactRefresh from "@vitejs/plugin-react-refresh";
+import million from "million/compiler";
 import { defineConfig } from "vite";
 import envCompatible from "vite-plugin-env-compatible";
 import eslintPlugin from "vite-plugin-eslint";
@@ -12,6 +13,9 @@ import svgrPlugin from "vite-plugin-svgr";
 export default defineConfig({
   build: {
     outDir: "build",
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
     rollupOptions: {
       output: {
         manualChunks: {
@@ -29,6 +33,7 @@ export default defineConfig({
     react(),
     reactRefresh(),
     envCompatible(),
+    million.vite({ auto: true }),
     eslintPlugin({
       cache: false,
       include: ["./src/**/*.jsx"],

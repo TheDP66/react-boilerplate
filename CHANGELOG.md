@@ -1,3 +1,33 @@
+# [6.0.0](https://gitlab.dwp.io/dharma.putra/react-boilerplate/compare/v5.0.0...v6.0.0) (2023-11-09)
+
+
+### Bug Fixes
+
+* **docs:** add new README contents ([e67840c](https://gitlab.dwp.io/dharma.putra/react-boilerplate/commit/e67840ccae38e620d205db49da18896f3461dfc6))
+* **docs:** change documentation file to another directory ([b4d6fc7](https://gitlab.dwp.io/dharma.putra/react-boilerplate/commit/b4d6fc732f36cbe16019d21919f02c55b02d73be))
+* **lint:** disable lint for empty useEffect dependency ([3b09ef2](https://gitlab.dwp.io/dharma.putra/react-boilerplate/commit/3b09ef2e5c8bf385ffe438be06086e6ac235ce2d))
+
+
+### Features
+
+* **dep:** add new dependencies ([754450a](https://gitlab.dwp.io/dharma.putra/react-boilerplate/commit/754450af9977fae8f773a291c6e6611a2b6203f4))
+* **test:** add dashboard e2e test ([1991fa6](https://gitlab.dwp.io/dharma.putra/react-boilerplate/commit/1991fa630108a46d83a912154103b14c5843e26b))
+* **test:** add playwright as an e2e testing tools ([23462c8](https://gitlab.dwp.io/dharma.putra/react-boilerplate/commit/23462c8549efb7944c6bc0d56e076cba39b692fb))
+
+
+### Performance Improvements
+
+* **app:** add ESLint config ([7d736c8](https://gitlab.dwp.io/dharma.putra/react-boilerplate/commit/7d736c86228aa213cee5febf021252a7ecaeb802))
+* **app:** add million.js as function replacement ([c52ba06](https://gitlab.dwp.io/dharma.putra/react-boilerplate/commit/c52ba06cb759efbb8c323f16f4d33726901d60e8))
+
+
+### BREAKING CHANGES
+
+* **app:** Million.js will handle component and render forEach
+* **app:** ESLint will be used for app linter
+* **test:** Playwright will be used as an E2E testing tools
+* **docs:** documentation file will be create in docs folder
+
 # [5.0.0](https://gitlab.dwp.io/dharma.putra/react-boilerplate/compare/v4.0.1...v5.0.0) (2023-10-19)
 
 

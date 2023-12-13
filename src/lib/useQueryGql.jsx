@@ -16,5 +16,7 @@ export const useQueryGql = (query, variables) => {
     }
   }
 
+  console.log("{error,data,loading}", { error, data, loading });
+
   return { error, data, loading };
 };

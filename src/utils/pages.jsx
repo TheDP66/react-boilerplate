@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { accountAbility } from "./ability";
 import { store } from "../redux/store";
+import { accountAbility } from "./ability";
 
 // ? generateAuthPage() used for formating and generating page object
 export const generateAuthPage = ({

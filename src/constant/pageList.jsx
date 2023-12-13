@@ -7,11 +7,16 @@ import {
   SettingOutlined,
   TeamOutlined,
 } from "@ant-design/icons";
-import Dashboard from "../pages/dashboard/Dashboard";
-import DetailDashboard from "../pages/dashboard/DetailDashboard";
-import Login from "../pages/login/Login";
-import Users from "../pages/users/Users";
+import { lazy } from "react";
 import { generateAuthPage, generateAuthParentPage } from "../utils/pages";
+
+const Activity = lazy(() => import("../pages/activity/Activity"));
+const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
+const DetailDashboard = lazy(() =>
+  import("../pages/dashboard/DetailDashboard")
+);
+const Login = lazy(() => import("../pages/login/Login"));
+const Users = lazy(() => import("../pages/users/Users"));
 
 export const unauthenticatedPageList = [
   {
@@ -43,7 +48,14 @@ export const authenticatedPageList = () =>
         "Provides administrators direct access to important Encompass tools.",
     }),
     generateAuthPage({
-      element: <>Activity</>,
+      element: <Users />,
+      icon: <TeamOutlined />,
+      key: "users",
+      label: "Users",
+      description: "Provides user information and activity log.",
+    }),
+    generateAuthPage({
+      element: <Activity />,
       icon: <BarChartOutlined />,
       key: "activity",
       label: "Activity",
@@ -55,13 +67,6 @@ export const authenticatedPageList = () =>
       key: "task",
       label: "Task",
       description: "Provides task information.",
-    }),
-    generateAuthPage({
-      element: <Users />,
-      icon: <TeamOutlined />,
-      key: "users",
-      label: "Users",
-      description: "Provides user information and activity log.",
     }),
     {
       type: "divider",
